@@ -18,13 +18,13 @@
 //       defer inde i <head> i index.html (se kommentaren dér).
 //       Hint: Et script-tag skal have attributterne src og defer.
 // ✏️ B. Skriv use strict på linjen herunder.
-//
+
 // 💬 Sparring: Forklar ChatGPT, hvad defer gør, og hvorfor dit
 //    script-tag står i <head>.
 
 // ✏️ B. Skriv use strict her ↓
 
-
+"use strict";
 
 // ------------------------------------------------------------------
 // STEP 1: Data om dyrene
@@ -50,6 +50,11 @@
 
 // ✏️ Skriv dit array her ↓
 
+const animalInfo = [
+  { className: "animal1", name: "Simba", species: "Løve", age: 5, food: "Kød" },
+  { className: "animal2", name: "Dumbo", species: "Elefant", age: 8, food: "Blade og frugt" },
+  { className: "animal3", name: "Gerald", species: "Giraf", age: 6, food: "Blade fra høje træer" }
+]
 
 
 // ✅ Test: Kig i Console – er der 3 dyr?
@@ -67,7 +72,7 @@ console.log(animalInfo);
 
 // ✏️ Skriv din kode her ↓
 
-
+const infoBoxElement = document.getElementById("infobox");
 
 // ------------------------------------------------------------------
 // STEP 3: Funktion der viser infoboksen
@@ -86,14 +91,14 @@ console.log(animalInfo);
 //       (Når du er færdig, må du gerne flytte { op i slutningen
 //       af linjen med funktionshovedet.)
 
-{
-  infoboxElement.innerHTML = text;
+function showInfoBox(text) {
+  infoBoxElement.innerHTML = text;
 
-  // ✏️ B. Skriv din kode her ↓
-
+ 
+  infoBoxElement.classList.add("show");
 
 }
-
+ // ✏️ B. Skriv din kode her ↓
 
 // ------------------------------------------------------------------
 // STEP 4: Vis info, når man klikker på et dyr
@@ -108,7 +113,7 @@ console.log(animalInfo);
 animalInfo.forEach(function (animal) {
   const element = document.querySelector("." + animal.className);
 
-  element.addEventListener("click", function () {
+  element.addEventListener("click", function (showInfoBox(animalDetails)) {
 
     // ✏️ Navnet er lavet for dig. Tilføj tre linjer under navnet:
     //      Art: ...
@@ -117,14 +122,16 @@ animalInfo.forEach(function (animal) {
     //    Afslut hver linje med <br> (undtagen den sidste).
     const animalDetails = `
       <strong>${animal.name}</strong><br>
-      
-
-      
-    `;
+      Art: ${animal.species}<br>
+      Alder: ${animal.age} <br>
+      Føde: ${animal.food}`;
 
     // ✏️ Skriv dit funktionskald til funktionen showInfoBox
     //    med animalDetails her ↓
-
+    function showInfoBox(animalDetails) {
+      infoBoxElement.innerHTML = animalDetails;
+      infoBoxElement.classList.add("show");
+    }
 
   });
 });
